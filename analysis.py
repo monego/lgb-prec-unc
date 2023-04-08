@@ -140,10 +140,6 @@ argvmax_prec = np.argmax(cmax_prec)
 argvmin_unc = np.argmin(cmin_unc)
 argvmax_unc = np.argmax(cmax_unc)
 
-
-# In[68]:
-
-
 # Finally display all the maps
 
 fig, axes = plt.subplots(nrows=2*5, ncols=2,
@@ -162,6 +158,7 @@ def make_axis(ax, cube, title, letter):
         return iplt.contourf(cube, cmap='GnBu', axes=ax, levels=20, vmin=vmin_unc, vmax=vmax_unc)
     else:
         pass
+
 
 ax_agcm_jan = axes[0][0]
 ax_agcm_apr = axes[0][1]
@@ -218,13 +215,8 @@ plt.colorbar(cf_unc_list[argvmax_unc], ax=[ax11, ax12])
 plt.colorbar(cf_prec_list[argvmax_prec], ax=[ax13, ax14])
 plt.colorbar(cf_unc_list[argvmax_unc], ax=[ax15, ax16])
 
-# Show the plot
+# Save the plot
 plt.savefig("results/maps-full.png", bbox_inches='tight')
-# plt.show()
-
-
-# In[69]:
-
 
 # Build a list of all the cubes containing the minimum and maximum values for all the target variables.
 # This is done to adjust the colorbar range in the maps.
@@ -256,15 +248,12 @@ vmax_error_prec = np.max(cmax_error_prec)
 argvmin_error_prec = np.argmin(cmin_error_prec)
 argvmax_error_prec = np.argmax(cmax_error_prec)
 
-
-# In[70]:
-
-
 # Display precipitation error maps
 
 fig_error, axes_error = plt.subplots(nrows=2*2, ncols=2,
                                      subplot_kw={'projection': ccrs.PlateCarree()},
                                      figsize=(12, 12*2))
+
 
 def make_axis(ax, cube, title, letter):
     ax.set_title(title)
@@ -300,9 +289,6 @@ plt.colorbar(cf_error_list[argvmax_error_prec], ax=[ax1_error_lgb, ax2_error_lgb
 
 # Show the plot
 plt.savefig("results/error-maps-full.png", bbox_inches='tight')
-
-
-# In[71]:
 
 
 def make_error_map(cube1, cube2, cube3, cube4, cmap, month):
