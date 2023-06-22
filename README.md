@@ -1,6 +1,6 @@
 # Machine learning for uncertainty quantification in climate precipitation prediction over South America
 
-This repository contains the reference code for "Machine learning for uncertainty quantification in climate precipitation prediction over South America". The code needs some cleanup, but it works.
+This repository contains the reference code for "Machine learning for uncertainty quantification in climate precipitation prediction over South America".
 
 ## Dependencies
 
